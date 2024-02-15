@@ -6,21 +6,23 @@ using UnityEngine;
 public class PowerUp : ScriptableObject
 {
     public string name;
-    public float multiplier;
 
-    public void ApplyPowerUp(PlayerController player)
+    public void ApplyPowerUp(PlayerController player, float multiplier, float duration)
     {
         if (name == "Speed")
         {
-            player.speed *= multiplier;
-        } 
+            player.StartCoroutine(player.AdjustSpeed(multiplier, duration));
+        }
         else if (name == "Jump")
         {
-            player.jumpForce *= multiplier;
+            player.StartCoroutine(player.AdjustJumpForce(multiplier, duration));
+        }
+        else if (name == "Gun")
+        {
+            player.StartCoroutine(player.AdjustDamage(multiplier, duration));
         }
         else
         {
-            // Do nothing
             Debug.Log("No Power Up Assigned!");
         }
     }
