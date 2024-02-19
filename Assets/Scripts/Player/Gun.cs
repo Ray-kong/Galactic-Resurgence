@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [Header("Gun Settings")]
     public float range = 100f; 
     public float damage = 10f; 
     public float fireRate = 10f; // The number of shots per second
 
-    private float nextTimeToFire = 0f; // Tracks when the player is allowed to fire again
+    private float nextTimeToFire; // Tracks when the player is allowed to fire again
 
-    public Camera fpsCamera; // The camera to shoot the ray from
-    public ParticleSystem muzzleFlash;
-    public AudioClip gunShotSound;
+    [Header("References")]
+    [SerializeField] private Camera fpsCamera; // The camera to shoot the ray from
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private AudioClip gunShotSound;
     
     void Update()
     {
@@ -26,9 +28,8 @@ public class Gun : MonoBehaviour
     {
         muzzleFlash.Play();
         AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
-        RaycastHit hit;
 
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range))
         {
             Debug.Log(hit.transform.name); // Log the name of the object hit
 
