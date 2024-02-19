@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5f;
     public float maxHealth = 100.0f;
     public float currentHealth = 50.0f;
-    public float gunDamage = 10.0f;
+    public float gunDamage = 10.0f; //TODO: modify so that gun script handles this
 
     private Rigidbody rb;
     private bool isGrounded = true;
@@ -39,10 +39,11 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
-
+        /*
         Debug.Log("Speed: " + speed);
         Debug.Log("Jump: " + jumpForce);
         Debug.Log("Health: " + currentHealth);
+        */
     }
 
     // Check if the player is grounded
