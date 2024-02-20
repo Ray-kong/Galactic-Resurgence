@@ -19,14 +19,18 @@ public class EnemyBehavior : MonoBehaviour
 
     [SerializeField] private float sightRange, attackRange;
     [SerializeField] private bool playerInSight, playerInAttackRange;
+
+    [SerializeField] private float aimOffset = 5f;
     #endregion
 
     private Transform player;
+    private EnemyGun gun;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        gun = GetComponent<EnemyGun>();
     }
 
     void Update()
@@ -90,13 +94,22 @@ public class EnemyBehavior : MonoBehaviour
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
+        float aimXOff = Random.Range(player.rotation.x - aimOffset, player.rotation.x + aimOffset);
+        float aimYOff = Random.Range(player.rotation.y - aimOffset, player.rotation.y + aimOffset);
+        float aimZOff = Random.Range(player.rotation.z - aimOffset, player.rotation.z + aimOffset);
+
+
+        transform.Rotate(new Vector3(aimXOff, aimYOff, 0));
+        gun.EnemyShoot();
+        /*
+
         // attack logic here
         if (!hasAttacked)
         {
             Debug.Log("Attacking Player");
             hasAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
+        }*/
     }
 
     private void ResetAttack()
