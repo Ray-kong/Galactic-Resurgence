@@ -7,6 +7,7 @@ public class HealingPowerUp : MonoBehaviour
     public int healingAmount = 10; // Total health to restore
     public float duration = 5f; // How long the healing takes
     public float healInterval = 1f; // How often to apply healing
+    public AudioClip pickupSound;
 
     void OnTriggerEnter(Collider other)
     {
@@ -14,6 +15,7 @@ public class HealingPowerUp : MonoBehaviour
 
         if (player != null)
         {
+            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
             StartCoroutine(HealOverTime(player));
             Destroy(gameObject); // Destroy the power-up object after pickup
         }
