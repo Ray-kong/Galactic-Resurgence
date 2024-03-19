@@ -8,11 +8,11 @@ public class Target : MonoBehaviour
 
     Transform deadTransform;
 
-    Animator anim;
+  //  Animator anim;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+       // anim = GetComponent<Animator>();
     }
 
     public void TakeDamage(float amount)
@@ -26,7 +26,7 @@ public class Target : MonoBehaviour
 
     void Die()
     {
-        anim.SetInteger("animState", 3);
+//        anim.SetInteger("animState", 3);
 
         Debug.Log(gameObject.name + " died.");
         
