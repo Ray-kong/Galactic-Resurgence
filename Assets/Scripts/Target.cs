@@ -3,7 +3,17 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+
     public float health = 50f; // Initial health
+
+    Transform deadTransform;
+
+    Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void TakeDamage(float amount)
     {
@@ -16,7 +26,12 @@ public class Target : MonoBehaviour
 
     void Die()
     {
+        anim.SetInteger("animState", 3);
+
         Debug.Log(gameObject.name + " died.");
-        Destroy(gameObject); 
+        
+        deadTransform = gameObject.transform;
+
+        Destroy(gameObject, 4);
     }
 }

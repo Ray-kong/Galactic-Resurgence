@@ -26,11 +26,17 @@ public class EnemyBehavior : MonoBehaviour
     private Transform player;
     private EnemyGun gun;
 
+    Animator anim;
+
+
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         gun = GetComponent<EnemyGun>();
+
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -54,6 +60,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Patrolling()
     {
+        anim.SetInteger("animState", 1);
+
         if (!walkPointIsSet)
         {
             SearchWalkPoint();
@@ -86,13 +94,16 @@ public class EnemyBehavior : MonoBehaviour
 
     private void ChasePlayer()
     {
+        anim.SetInteger("animState", 1);
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
-    {
+    { 
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+
+        anim.SetInteger("animState", 2);
 
         float aimXOff = Random.Range(player.rotation.x - aimOffset, player.rotation.x + aimOffset);
         float aimYOff = Random.Range(player.rotation.y - aimOffset, player.rotation.y + aimOffset);
