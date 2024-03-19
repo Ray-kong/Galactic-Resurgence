@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
+    private int currentSceneIndex;
 
     private void Awake()
     {
@@ -13,6 +15,7 @@ public class LevelManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         }
         else
         {
@@ -23,8 +26,12 @@ public class LevelManager : MonoBehaviour
     // Load the next level
     public void LoadNextLevel()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextSceneIndex);
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }

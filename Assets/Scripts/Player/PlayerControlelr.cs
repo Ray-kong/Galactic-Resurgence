@@ -18,11 +18,14 @@ public class PlayerController : MonoBehaviour
     
     private Vector3 move, direction; 
     private CharacterController controller;
+
+    private LevelManager levelManager;
     
     
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
     
     private void Update()
@@ -123,7 +126,8 @@ public class PlayerController : MonoBehaviour
         if (currentHealth <= 0)
         {
             // Die
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            levelManager.Reset();
         }
     }
     #endregion
