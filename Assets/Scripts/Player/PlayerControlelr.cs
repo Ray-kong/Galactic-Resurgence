@@ -1,4 +1,5 @@
 using System.Collections;
+using MagicPigGames;
 using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -12,9 +13,11 @@ public class PlayerController : MonoBehaviour
     public float maxHealth = 100.0f;
     public float currentHealth = 50.0f;
     
+    
     [Header("Attachable")]
     [SerializeField] private Transform mainCamera;
     [SerializeField] private GameObject  gun;
+    [SerializeField] private GameObject healthBar;
     
     private Vector3 move, direction; 
     private CharacterController controller;
@@ -123,6 +126,8 @@ public class PlayerController : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Prevents going over max or below 0
         // Update health UI
+        healthBar.GetComponent<ProgressBar>().SetProgress(currentHealth / maxHealth);
+        Debug.Log("Current Health: " + currentHealth);
         if (currentHealth <= 0)
         {
             // Die
