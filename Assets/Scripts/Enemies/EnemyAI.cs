@@ -19,17 +19,21 @@ public class EnemyAI : MonoBehaviour
     public float enemySpeed = 3.5f;
     public float chaseDistance = 20f;
     public float attackDistance = 15f;
+    public ImprovedEnemyGun enemyGun;
 
     private float distanceToPlayer;
     
     public GameObject[] wanderPoints;
     private int currentDestIndex = 0;
 
+    private Target health;
+
     private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         currentState = EnemyState.PATROL;
+        health = GetComponent<Target>();
         if (agent == null)
         {
             agent = GetComponent<NavMeshAgent>();
@@ -49,6 +53,10 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (!health.IsAlive())
+        {
+            currentState = EnemyState.DEAD;
+        }
         switch (currentState)
         {
             case EnemyState.PATROL:
@@ -96,6 +104,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.stoppingDistance = attackDistance;
         FaceTarget(player.position);
+        enemyGun.Shoot();
         if (distanceToPlayer > attackDistance)
         {
             currentState = EnemyState.CHASE;
@@ -105,6 +114,7 @@ public class EnemyAI : MonoBehaviour
     private void UpdateDeadState()
     {
         agent.speed = 0f;
+        anim.SetBool("dead", true);
     }
 
     private void SetBlendSpaceFloats()
