@@ -1,6 +1,8 @@
 using System.Collections;
 using MagicPigGames;
 using UnityEngine;
+using UnityEngine.UI;
+
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
@@ -8,7 +10,10 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     public float jumpHeight = 3f;
     public float gravity = 9.8f;
-    
+    public float dashDistance = 10.0f;
+    public float dashCooldown = 1.0f;
+    public AudioClip dashSound;
+
     [Header("Health Settings")]
     public float maxHealth = 100.0f;
     public float currentHealth = 50.0f;
@@ -18,17 +23,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform mainCamera;
     [SerializeField] private GameObject  gun;
     [SerializeField] private GameObject healthBar;
-    
+    public Image dashImage;
+
+    private AudioSource audioSource;
     private Vector3 move, direction; 
     private CharacterController controller;
+
+    private bool isDashCooldown = false;
+
+    private float currentDashCooldown;
 
     private LevelManager levelManager;
     
     
     private void Start()
     {
+        dashImage.fillAmount = 0;
+
         controller = GetComponent<CharacterController>();
         levelManager = FindObjectOfType<LevelManager>();
+
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
     
     private void Update()
@@ -45,6 +65,13 @@ public class PlayerController : MonoBehaviour
         direction.y = ApplyGravity(direction.y);
 
         MoveCharacter(moveDirection, direction.y);
+
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && !isDashCooldown)
+        {
+            Dash();
+        }
+
+        DashCooldown(ref currentDashCooldown, dashCooldown, ref isDashCooldown, dashImage);
     }
 
     #region Input Handling
@@ -63,6 +90,50 @@ public class PlayerController : MonoBehaviour
         Vector3 moveRight = mainCamera.right * inputDirection.x;
         Vector3 moveForward = Vector3.ProjectOnPlane(mainCamera.forward, Vector3.up).normalized * inputDirection.z;
         return (moveRight + moveForward).normalized;
+    }
+    #endregion
+
+    #region Dashing
+
+    private void Dash()
+    {
+        isDashCooldown = true;
+        currentDashCooldown = dashCooldown;
+
+        if (audioSource != null && dashSound != null)
+        {
+            audioSource.PlayOneShot(dashSound); // Play the dash sound effect
+        }
+
+        Vector3 dashVector = direction.normalized * dashDistance;
+        controller.Move(dashVector);
+    }
+
+    private void DashCooldown(ref float currentCooldown, float maxCooldown, ref bool isCooldown, Image dashImage)
+    {
+        if(isCooldown)
+        {
+            currentCooldown -= Time.deltaTime;
+
+            if (currentCooldown <= 0f)
+            {
+                isCooldown = false;
+                currentCooldown = 0;
+
+                if(dashImage != null)
+                {
+                    dashImage.fillAmount = 0f;
+                }
+            }
+            else
+            {
+                if(dashImage != null)
+                {
+                    dashImage.fillAmount = currentCooldown / maxCooldown;
+                }
+                 
+            }
+        }
     }
     #endregion
 
@@ -94,6 +165,7 @@ public class PlayerController : MonoBehaviour
         Vector3 finalMove = new Vector3(moveDirection.x, yVelocity, moveDirection.z) * (Time.deltaTime * speed);
         controller.Move(finalMove);
     }
+
     #endregion
 
     # region Health and PowerUp Handling
