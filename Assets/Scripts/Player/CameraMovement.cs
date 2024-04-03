@@ -30,8 +30,6 @@ public class CameraMovement : MonoBehaviour
         // Apply rotation to the camera
         transform.localEulerAngles = new Vector3(xRotation, yRotation, 0f);
 
-        transform.position = playerTransform.position;
-
-
+        //transform.position = playerTransform.position;
     }
 }
