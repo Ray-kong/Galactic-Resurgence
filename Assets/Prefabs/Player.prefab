@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6896309680970758135}
   - component: {fileID: 9101832660587824076}
   - component: {fileID: 6861437364684291174}
+  - component: {fileID: 4461911846801023924}
   m_Layer: 8
   m_Name: SciFiGunLightBlack
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 501459172616644756}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3, y: -0.98, z: -0.978}
+  m_LocalPosition: {x: -0.3, y: -0.198, z: -0.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -101,9 +102,36 @@ MonoBehaviour:
   range: 100
   damage: 10
   fireRate: 10
+  maxAmmo: 35
+  reloadTime: 3
   fpsCamera: {fileID: 5446023592824784723}
   muzzleFlash: {fileID: 103380926292673564}
   gunShotSound: {fileID: 8300000, guid: 788afe843c28a7544a970295206c575b, type: 3}
+  reloadSound: {fileID: 8300000, guid: 0c95d175d99414544af65aea9431ad0f, type: 3}
+  gunReadySound: {fileID: 8300000, guid: 13ad3ace6a6a5bb4a8f4972fe3221211, type: 3}
+  ammoText: {fileID: 0}
+  reloadText: {fileID: 0}
+--- !u!95 &4461911846801023924
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501459172616644756}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e04f9206dae0874a83ab15a845d26c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1901678808028014659
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +164,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.5906878, y: 1.15, z: -7.94}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2441978345839038166}
@@ -209,12 +237,12 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.49209166, z: 0}
 --- !u!143 &3340855453692320808
 CharacterController:
   m_ObjectHideFlags: 0
@@ -260,10 +288,11 @@ MonoBehaviour:
   dashCooldown: 1
   dashSound: {fileID: 8300000, guid: 0689735a2c9048a438e48e02aec69323, type: 3}
   maxHealth: 100
-  currentHealth: 50
+  currentHealth: 100
   mainCamera: {fileID: 2441978345839038166}
   gun: {fileID: 501459172616644756}
   healthBar: {fileID: 0}
+  dashImage: {fileID: 0}
 --- !u!82 &4266759372693085752
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5274,7 +5303,7 @@ Transform:
   m_GameObject: {fileID: 2545168406808544470}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.43074524, y: -0.7650242, z: -1.0874835}
+  m_LocalPosition: {x: -0.43074524, y: 0.01697588, z: -0.36948407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5347,7 +5376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5764278543868357617
 Transform:
   m_ObjectHideFlags: 0
@@ -5370,7 +5399,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3964608459219805627}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -5453,7 +5482,7 @@ Transform:
   m_GameObject: {fileID: 8748184321617729356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.41, z: 0}
+  m_LocalPosition: {x: 0, y: 0.675, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5533,6 +5562,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 4485388037660485131}
-  mouseSensitivity: 200
+  mouseSensitivity: 300
   minClamp: -90
   maxClamp: 90
