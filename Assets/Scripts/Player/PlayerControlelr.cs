@@ -97,13 +97,13 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        isDashCooldown = true;
-        currentDashCooldown = dashCooldown;
-
-        if (audioSource != null && dashSound != null)
+        if (audioSource != null && dashSound != null && isDashCooldown == false)
         {
             audioSource.PlayOneShot(dashSound); // Play the dash sound effect
         }
+
+        isDashCooldown = true;
+        currentDashCooldown = dashCooldown;
 
         Vector3 dashVector = direction.normalized * dashDistance;
         controller.Move(dashVector);

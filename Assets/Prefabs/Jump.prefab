@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7615398345822160005}
   - component: {fileID: 8892061933418601144}
   - component: {fileID: 5561833150621911812}
-  - component: {fileID: 1656256080558512604}
+  - component: {fileID: 755368259516807766}
   - component: {fileID: 8869110031906528088}
   m_Layer: 0
   m_Name: Jump
-  m_TagString: Speed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 1696917429497525670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.89, y: 1.6, z: -2.69}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.63272, y: -0.51009, z: -0.01145}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1901826231859780844}
+  - {fileID: 840188929251519210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8892061933418601144
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696917429497525670}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 7ac2319ff4942e64d8b25c0a7b6295fb, type: 3}
 --- !u!23 &5561833150621911812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -57,14 +57,14 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 641865a4a7b0114499118421fb7942d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1656256080558512604
-SphereCollider:
+--- !u!65 &755368259516807766
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +105,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 0.14083163, y: 0.19999616, z: 0.0612636}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8869110031906528088
 MonoBehaviour:
@@ -123,7 +123,7 @@ MonoBehaviour:
   multiplier: 2
   duration: 4
   pickupSound: {fileID: 8300000, guid: f6f13f6c5084fd34b9604130f54e5f85, type: 3}
---- !u!1 &3870781973141710058
+--- !u!1 &2767149952678251273
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,8 +131,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1901826231859780844}
-  - component: {fileID: 2667350170877610791}
+  - component: {fileID: 840188929251519210}
+  - component: {fileID: 2384321745562448086}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -140,35 +140,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1901826231859780844
+--- !u!4 &840188929251519210
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3870781973141710058}
+  m_GameObject: {fileID: 2767149952678251273}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7615398345822160005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &2667350170877610791
+--- !u!108 &2384321745562448086
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3870781973141710058}
+  m_GameObject: {fileID: 2767149952678251273}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5613208, g: 1, b: 0.574619, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
