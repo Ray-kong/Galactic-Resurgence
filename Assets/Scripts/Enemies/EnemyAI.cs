@@ -29,6 +29,12 @@ public class EnemyAI : MonoBehaviour
     private Target health;
 
     private Animator anim;
+
+    public float fov = 180f;
+
+    public Transform enemyEyes;
+    public bool useSight = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +49,11 @@ public class EnemyAI : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
+
+        if (wanderPoints.Length == 0)
+        {
+            wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
+        }
         anim = GetComponent<Animator>();
         agent.speed = enemySpeed;
         agent.stoppingDistance = attackDistance;
@@ -80,7 +90,7 @@ public class EnemyAI : MonoBehaviour
         agent.stoppingDistance = 0f;
         agent.SetDestination(wanderPoints[currentDestIndex].transform.position);
         PatrolPoints();
-        if (distanceToPlayer <= chaseDistance)
+        if (distanceToPlayer <= chaseDistance && IsPlayerInClearFOV())
         {
             currentState = EnemyState.CHASE;
         }
@@ -155,11 +165,54 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
     }
     
+    private bool IsPlayerInClearFOV()
+    {
+        if (!useSight)
+        {
+            // in the case we don't want to use sight we just set to true
+            // so if the enemy is in range they will always be chased and shot at
+            return true;
+        }
+        RaycastHit hitInfo;
+        Vector3 directionToPlayer = player.position - enemyEyes.position;
+        if (Vector3.Angle(directionToPlayer, enemyEyes.forward) <= fov / 2)
+        {
+            if (Physics.Raycast(enemyEyes.position, directionToPlayer, out hitInfo, chaseDistance))
+            {
+                if (hitInfo.collider.CompareTag("Player"))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
     private void OnDrawGizmos()
     {
+        // range stuff
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackDistance);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
+        
+        // fov stuff
+        if (useSight)
+        {
+            Vector3 frontRayPoint = enemyEyes.position + (enemyEyes.forward * chaseDistance);
+
+            Quaternion leftRotation = Quaternion.AngleAxis(fov * 0.5f, Vector3.up);
+            Quaternion rightRotation = Quaternion.AngleAxis(-fov * 0.5f, Vector3.up);
+
+            Vector3 leftRayDirection = leftRotation * enemyEyes.forward;
+            Vector3 rightRayDirection = rightRotation * enemyEyes.forward;
+
+            Vector3 leftRayPoint = enemyEyes.position + leftRayDirection * chaseDistance;
+            Vector3 rightRayPoint = enemyEyes.position + rightRayDirection * chaseDistance;
+
+            Debug.DrawLine(enemyEyes.position, frontRayPoint, Color.cyan);
+            Debug.DrawLine(enemyEyes.position, leftRayPoint, Color.cyan);
+            Debug.DrawLine(enemyEyes.position, rightRayPoint, Color.cyan);
+        }
     }
 }
