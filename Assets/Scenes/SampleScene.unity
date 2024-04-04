@@ -313,7 +313,7 @@ MonoBehaviour:
   gameText: {fileID: 2111386798}
   gameoverSFX: {fileID: 8300000, guid: 0689735a2c9048a438e48e02aec69323, type: 3}
   gameWonSFX: {fileID: 8300000, guid: 1d137c48521fa5b45a3a8a8fd345c17b, type: 3}
-  nextLevel: 
+  nextLevel: Level2Final
 --- !u!1 &197049478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 147846, guid: e2a563409f05b26429e07cb45c0d2ea2, type: 3}
