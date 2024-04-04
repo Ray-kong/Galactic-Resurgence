@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileShoot : MonoBehaviour
 {
     public GameObject projectilePrefab;
-
+    public AudioClip shootSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +15,13 @@ public class ProjectileShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (TwoDLevelManager.isGameOver == false)
         {
-            Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                AudioSource.PlayClipAtPoint(shootSFX, Camera.main.transform.position);
+                Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            }
         }
     }
 

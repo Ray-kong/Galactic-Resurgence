@@ -19,10 +19,11 @@ public class ShipMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+      //  Debug.Log("w");
         if(collision.gameObject.tag == "Boundary")
         {
 
-            transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z);
             moveSpeed *= -1;
         }
     }
