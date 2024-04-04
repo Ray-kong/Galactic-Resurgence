@@ -104,8 +104,10 @@ public class PlayerController : MonoBehaviour
 
         isDashCooldown = true;
         currentDashCooldown = dashCooldown;
-
-        Vector3 dashVector = direction.normalized * dashDistance;
+        
+        Vector3 forwardDirection = Vector3.ProjectOnPlane(mainCamera.forward, Vector3.up).normalized;
+        Vector3 dashVector = forwardDirection * dashDistance;
+        
         controller.Move(dashVector);
     }
 
