@@ -1,13 +1,18 @@
 // Purpose: This script is used to manage the health of the target object. It is attached to the target object in the scene.
 
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Target : MonoBehaviour
 {
 
     public float health = 50f; // Initial health
     private bool alive = true;
+    [SerializeField] private Slider healthBar;
+    
+    
 
     public void TakeDamage(float amount)
     {
@@ -16,6 +21,7 @@ public class Target : MonoBehaviour
         {
             alive = false;
         }
+        healthBar.value = health;
     }
 
     public bool IsAlive()
