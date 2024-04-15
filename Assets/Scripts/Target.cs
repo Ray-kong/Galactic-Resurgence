@@ -20,6 +20,7 @@ public class Target : MonoBehaviour
         if (health <= 0f)
         {
             alive = false;
+            Destroy(healthBar.gameObject);
         }
         healthBar.value = health;
     }
