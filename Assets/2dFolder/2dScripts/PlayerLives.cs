@@ -6,6 +6,7 @@ public class PlayerLives : MonoBehaviour
 {
     public int lives = 3;
     public Image[] livesUI;
+    public GameObject explosionPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class PlayerLives : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("triggered");
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyProjectile")
         {
             Destroy(collision.gameObject);
             lives -= 1;
@@ -39,6 +40,7 @@ public class PlayerLives : MonoBehaviour
 
             if (lives <= 0)
             {
+                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 FindObjectOfType<TwoDLevelManager>().LevelLost();
             }

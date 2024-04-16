@@ -11,6 +11,7 @@ public class TwoDLevelManager : MonoBehaviour
     public AudioClip gameoverSFX;
     public AudioClip gameWonSFX;
     public string nextLevel;
+    public GameObject dialoguePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -37,18 +38,21 @@ public class TwoDLevelManager : MonoBehaviour
 
     public void LevelBeat()
     {
+        dialoguePanel.gameObject.SetActive(true);
         isGameOver = true;
-        gameText.text = "YOU WIN!";
-        gameText.gameObject.SetActive(true);
+       // gameText.text = "YOU WIN!";
+      //  gameText.gameObject.SetActive(true);
         AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
 
+        /*
         if (!string.IsNullOrEmpty(nextLevel))
         {
             Invoke("LoadNextLevel", 2);
         }
+        */
     }
 
-    void LoadNextLevel()
+    public void LoadNextLevel()
     {
         SceneManager.LoadScene(nextLevel);
     }
