@@ -3,9 +3,8 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public Transform playerTransform;
-    public float mouseSensitivity = 100.0f; // Sensitivity of mouse movement
-    public float minClamp = -90.0f; // Minimum vertical rotation
-    public float maxClamp = 90.0f; // Maximum vertical rotation
+    public float minClamp = -90.0f;
+    public float maxClamp = 90.0f;
 
     private float xRotation;
     private float yRotation;
@@ -18,18 +17,15 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        // Get mouse movement input
+        float mouseSensitivity = GameSettings.MouseSensitivity;
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY; // Invert Y axis
-        xRotation = Mathf.Clamp(xRotation, minClamp, maxClamp); // Clamp vertical rotation
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, minClamp, maxClamp);
 
         yRotation += mouseX;
 
-        // Apply rotation to the camera
         transform.localEulerAngles = new Vector3(xRotation, yRotation, 0f);
-
-        //transform.position = playerTransform.position;
     }
 }

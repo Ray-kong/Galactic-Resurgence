@@ -9,6 +9,7 @@ public class KeyPickup : MonoBehaviour
     public GameObject interactText;
     public GameObject Enemies1;
     public GameObject Enemies2;
+   
     public AudioSource item;
     public AudioSource uhoh;
 

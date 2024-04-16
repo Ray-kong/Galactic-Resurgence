@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject teamPanel;
+    public GameObject sensitivityPanel;
     public GameObject buttonsAndText;
 
     public void StartGame()
@@ -31,6 +32,18 @@ public class MainMenu : MonoBehaviour
     public void HideTeam()
     {
         teamPanel.SetActive(false);  // Hide the team panel
+        buttonsAndText.SetActive(true);
+    }
+
+    public void ShowSensitivity()
+    {
+        sensitivityPanel.SetActive(true);
+        buttonsAndText.SetActive(false);
+    }
+
+    public void HideSensitivity()
+    {
+        sensitivityPanel.SetActive(false);
         buttonsAndText.SetActive(true);
     }
 }
