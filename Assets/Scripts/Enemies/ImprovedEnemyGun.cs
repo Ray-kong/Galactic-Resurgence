@@ -79,8 +79,6 @@ public class ImprovedEnemyGun : MonoBehaviour
 
     private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, Vector3 HitNormal, bool madeImpact)
     {
-        // This has been updated from the video implementation to fix a commonly raised issue about the bullet trails
-        // moving slowly when hitting something close, and not
         Vector3 startPosition = Trail.transform.position;
         float distance = Vector3.Distance(Trail.transform.position, HitPoint);
         float remainingDistance = distance;
