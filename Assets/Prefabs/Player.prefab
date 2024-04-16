@@ -35,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 4130641784724381137}
   - {fileID: 5764278543868357617}
+  - {fileID: 6596436691668058458}
   m_Father: {fileID: 2441978345839038166}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6896309680970758135
@@ -112,6 +113,8 @@ MonoBehaviour:
   gunShotSound: {fileID: 8300000, guid: 788afe843c28a7544a970295206c575b, type: 3}
   reloadSound: {fileID: 8300000, guid: 0c95d175d99414544af65aea9431ad0f, type: 3}
   gunReadySound: {fileID: 8300000, guid: 13ad3ace6a6a5bb4a8f4972fe3221211, type: 3}
+  bulletTrail: {fileID: 6269621183934959984, guid: 968e6b31c1a83dc45bc90685034ded7d, type: 3}
+  gunBarrel: {fileID: 0}
   ammoText: {fileID: 0}
   reloadText: {fileID: 0}
 --- !u!95 &4461911846801023924
@@ -135,6 +138,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &710733846037959812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6596436691668058458}
+  m_Layer: 8
+  m_Name: Bullet point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6596436691668058458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710733846037959812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.355, y: 0.157, z: 0.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9010318554015733741}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1901678808028014659
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 2152039262428061569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1359, z: 0.6971}
+  m_LocalPosition: {x: 0.013, y: 0.1359, z: 0.6971}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -615,7 +649,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.16470589, b: 0.1764706, a: 1}
+      maxColor: {r: 0.18823531, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5565,6 +5599,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 4485388037660485131}
-  mouseSensitivity: 300
   minClamp: -90
   maxClamp: 90
