@@ -4,5 +4,6 @@ using UnityEngine;
 
 public static class PlayerInventory
 {
-    public static bool HasKey = false; 
+    public static bool HasKey = false;
+    public static bool HasKeyLevel1 = false;
 }
