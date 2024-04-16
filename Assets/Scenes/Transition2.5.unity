@@ -440,7 +440,7 @@ MonoBehaviour:
   - {fileID: 1312288034}
   - {fileID: 42258485}
   - {fileID: 1701114865}
-  explosionPrefab: {fileID: 6316227892287067069, guid: a52a957bbff3640ff97ae4d4c500d58d, type: 3}
+  explosionPrefab: {fileID: 8833876512904772341, guid: cea4cf83a90ca42498f12354d53f1bc4, type: 3}
 --- !u!1 &231674753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spaceship_7 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7499995816832217648, guid: b75fbfb9cc1ba4541b78da7ad2c6119f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8372473555027539402, guid: b75fbfb9cc1ba4541b78da7ad2c6119f, type: 3}
     m_RemovedGameObjects: []
@@ -2438,6 +2442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spaceship_2
       objectReference: {fileID: 0}
+    - target: {fileID: 147846, guid: e2a563409f05b26429e07cb45c0d2ea2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 420902, guid: e2a563409f05b26429e07cb45c0d2ea2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
@@ -2935,6 +2943,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2577368055871687093, guid: f42e75bc6433a44e9a95a1ddb9413be7, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 4266411021107297600, guid: 243c8d28e351f432d99f1e88982ccda6, type: 3}
     - target: {fileID: 5379898224969626855, guid: f42e75bc6433a44e9a95a1ddb9413be7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.83
@@ -2978,6 +2990,10 @@ PrefabInstance:
     - target: {fileID: 5386090468339764619, guid: f42e75bc6433a44e9a95a1ddb9413be7, type: 3}
       propertyPath: m_Name
       value: ship2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386090468339764619, guid: f42e75bc6433a44e9a95a1ddb9413be7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7266328201143258729, guid: f42e75bc6433a44e9a95a1ddb9413be7, type: 3}
       propertyPath: moveSpeed

@@ -440,7 +440,7 @@ MonoBehaviour:
   - {fileID: 1312288034}
   - {fileID: 42258485}
   - {fileID: 1701114865}
-  explosionPrefab: {fileID: 6316227892287067069, guid: a52a957bbff3640ff97ae4d4c500d58d, type: 3}
+  explosionPrefab: {fileID: 8833876512904772341, guid: cea4cf83a90ca42498f12354d53f1bc4, type: 3}
 --- !u!1 &231674753
 GameObject:
   m_ObjectHideFlags: 0

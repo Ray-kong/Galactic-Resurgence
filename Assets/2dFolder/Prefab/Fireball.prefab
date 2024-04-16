@@ -163,4 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   winScore: 8
-  explosionPrefab: {fileID: 6316227892287067069, guid: a52a957bbff3640ff97ae4d4c500d58d, type: 3}
+  explosionPrefab: {fileID: 8833876512904772341, guid: cea4cf83a90ca42498f12354d53f1bc4, type: 3}
