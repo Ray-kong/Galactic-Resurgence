@@ -268,7 +268,7 @@ MonoBehaviour:
   enemyGun: {fileID: 4151843570331471426}
   wanderPoints:
   - {fileID: 0}
-  fov: 270
+  fov: 360
   enemyEyes: {fileID: 1472289343754506395}
   useSight: 1
   maskExclusion:
@@ -1801,7 +1801,7 @@ MonoBehaviour:
   bulletSpreadEnabled: 1
   bloom: {x: 0.1, y: 0.05, z: 0.05}
   impact: {fileID: 0}
-  bulletTrail: {fileID: 6269621183934959984, guid: 48728abb466d03f42840fa39b56736a6, type: 3}
+  bulletTrail: {fileID: 6269621183934959984, guid: 5c0b4f3e9d3c4014f844c75d108258f6, type: 3}
   shootDelay: 0.1
   mask:
     serializedVersion: 2
@@ -2093,7 +2093,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 5.8e-43, y: 1.6354908e+29, z: 5.8e-43, w: 0}
+  m_BoundingSphereOverride: {x: 6.88e-43, y: -3.7380724e-37, z: 6.88e-43, w: -2.281583e-37}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -3133,7 +3133,7 @@ GameObject:
   - component: {fileID: 277003834438461794}
   - component: {fileID: 3524111717453173700}
   - component: {fileID: 4062700990780594257}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3149,7 +3149,7 @@ Transform:
   m_GameObject: {fileID: 9114144643862263998}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47, y: -0.668, z: 0.389}
+  m_LocalPosition: {x: -0.0045, y: 0.164, z: 0.4634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3345,7 +3345,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.16470589, b: 0.1764706, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.7531514, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
