@@ -35,6 +35,10 @@ public class EnemyAI : MonoBehaviour
     public Transform enemyEyes;
     public bool useSight = false;
     public LayerMask maskExclusion;
+    private BoxCollider collider;
+    public AudioClip deathSound;
+    private bool useDeathSound = false;
+    private AudioSource audioSource;
     
     // Start is called before the first frame update
     void Start()
@@ -56,8 +60,15 @@ public class EnemyAI : MonoBehaviour
             wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         }
         anim = GetComponent<Animator>();
+        collider = GetComponent<BoxCollider>();
         agent.speed = enemySpeed;
         agent.stoppingDistance = attackDistance;
+
+        audioSource = GetComponent<AudioSource>();
+        if (deathSound != null && audioSource != null)
+        {
+            useDeathSound = true;
+        }
     }
 
     // Update is called once per frame
@@ -125,6 +136,15 @@ public class EnemyAI : MonoBehaviour
     private void UpdateDeadState()
     {
         agent.speed = 0f;
+        if (collider.enabled)
+        {
+            collider.enabled = false;
+            if (useDeathSound)
+            {
+                audioSource.clip = deathSound;
+                audioSource.Play();
+            }
+        }
         anim.SetTrigger("dead");
     }
 

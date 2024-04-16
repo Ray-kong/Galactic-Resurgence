@@ -13,6 +13,8 @@ public class Gun : MonoBehaviour
     public int maxAmmo = 35; // Maximum ammo capacity
     public float reloadTime = 3f; // Time it takes to reload
 
+    public LayerMask bulletLayers;
+
     private float nextTimeToFire; // Tracks when the player is allowed to fire again
     private int currentAmmo; // Current ammo
     private bool isReloading = false; // Is the gun currently reloading?]
@@ -92,7 +94,7 @@ public class Gun : MonoBehaviour
         muzzleFlash.Play();
         AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
 
-        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range))
+        if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range, bulletLayers))
         {
             //Debug.Log(hit.transform.name); // Log the name of the object hit
 

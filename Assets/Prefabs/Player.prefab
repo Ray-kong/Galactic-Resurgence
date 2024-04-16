@@ -104,6 +104,9 @@ MonoBehaviour:
   fireRate: 10
   maxAmmo: 35
   reloadTime: 3
+  bulletLayers:
+    serializedVersion: 2
+    m_Bits: 503
   fpsCamera: {fileID: 5446023592824784723}
   muzzleFlash: {fileID: 103380926292673564}
   gunShotSound: {fileID: 8300000, guid: 788afe843c28a7544a970295206c575b, type: 3}
