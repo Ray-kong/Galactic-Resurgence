@@ -27,8 +27,14 @@ public class Gun : MonoBehaviour
     [SerializeField] private AudioClip reloadSound;
     [SerializeField] private AudioClip gunReadySound;
 
+    [Header("BulletTrail")] 
+    [SerializeField] private TrailRenderer bulletTrail;
+    [SerializeField] private Transform gunBarrel;
+
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI reloadText;
+
+    private float bulletSpeed = 100f;
 
     void Start()
     {
@@ -97,12 +103,43 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hit, range, bulletLayers))
         {
             //Debug.Log(hit.transform.name); // Log the name of the object hit
+            TrailRenderer trail = Instantiate(bulletTrail, gunBarrel.position, Quaternion.identity);
 
+            StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
                 target.TakeDamage(damage);
             }
         }
+        else
+        {
+            TrailRenderer trail = Instantiate(bulletTrail, gunBarrel.position, Quaternion.identity);
+
+            StartCoroutine(SpawnTrail(trail, gunBarrel.position + gunBarrel.forward * 100, Vector3.zero, false));
+        }
+    }
+    
+    private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, Vector3 HitNormal, bool madeImpact)
+    {
+        Vector3 startPosition = Trail.transform.position;
+        float distance = Vector3.Distance(Trail.transform.position, HitPoint);
+        float remainingDistance = distance;
+
+        while (remainingDistance > 0)
+        {
+            Trail.transform.position = Vector3.Lerp(startPosition, HitPoint, 1 - (remainingDistance / distance));
+
+            remainingDistance -= bulletSpeed * Time.deltaTime;
+
+            yield return null;
+        }
+        Trail.transform.position = HitPoint;
+        if (madeImpact)
+        {
+            //Instantiate(impact, HitPoint, Quaternion.LookRotation(HitNormal));
+        }
+
+        Destroy(Trail.gameObject, Trail.time);
     }
 }
