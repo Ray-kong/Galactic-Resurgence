@@ -9,7 +9,7 @@ public class TwoDPlayerController : MonoBehaviour
     public float moveSpeed = 5;
     public Text scoreText;
     public Slider progressBar;
-    public float targetProgress = 5;
+    public float targetProgress = 8;
     //   private float fillSpeed = 0.5f;
     // Start is called before the first frame update
     void Start()

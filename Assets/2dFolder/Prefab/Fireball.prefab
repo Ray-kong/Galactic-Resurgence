@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3076838832391932918}
   - component: {fileID: 6131568742281326112}
   - component: {fileID: 7788213078140267016}
-  - component: {fileID: -953337182716580203}
+  - component: {fileID: 795806466094123220}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Bullet
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &-953337182716580203
+--- !u!114 &795806466094123220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,4 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  winScore: 8
   explosionPrefab: {fileID: 6316227892287067069, guid: a52a957bbff3640ff97ae4d4c500d58d, type: 3}

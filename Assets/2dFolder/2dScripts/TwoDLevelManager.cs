@@ -31,7 +31,7 @@ public class TwoDLevelManager : MonoBehaviour
         gameText.text = "GAME OVER!";
         gameText.gameObject.SetActive(true);
         AudioSource.PlayClipAtPoint(gameoverSFX, Camera.main.transform.position);
-
+        Projectile.score = 0;
         Invoke("LoadCurrentLevel", 2);
         
     }
