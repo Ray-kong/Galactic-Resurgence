@@ -1166,8 +1166,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You''ve punched a hole in their blockade! The coast is clear to fly to
-    the next planet. Retrieve the next spaceship part and I''ll pick you up there. '
+  m_Text: This is our chance! I'm going to fly us in and you go into the hull of
+    their ship. Good luck!
 --- !u!222 &817275963
 CanvasRenderer:
   m_ObjectHideFlags: 0
