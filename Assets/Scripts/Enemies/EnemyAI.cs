@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour
 
     public Transform enemyEyes;
     public bool useSight = false;
+    public LayerMask maskExclusion;
     
     // Start is called before the first frame update
     void Start()
@@ -124,7 +125,7 @@ public class EnemyAI : MonoBehaviour
     private void UpdateDeadState()
     {
         agent.speed = 0f;
-        anim.SetBool("dead", true);
+        anim.SetTrigger("dead");
     }
 
     private void SetBlendSpaceFloats()
@@ -177,7 +178,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 directionToPlayer = player.position - enemyEyes.position;
         if (Vector3.Angle(directionToPlayer, enemyEyes.forward) <= fov / 2)
         {
-            if (Physics.Raycast(enemyEyes.position, directionToPlayer, out hitInfo, chaseDistance))
+            if (Physics.Raycast(enemyEyes.position, directionToPlayer, out hitInfo, chaseDistance, ~maskExclusion))
             {
                 if (hitInfo.collider.CompareTag("Player"))
                 {

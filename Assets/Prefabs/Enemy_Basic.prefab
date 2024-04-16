@@ -348,6 +348,9 @@ MonoBehaviour:
   fov: 180
   enemyEyes: {fileID: 2740705735604724770}
   useSight: 0
+  maskExclusion:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1214891987965251487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7902,5 +7905,5 @@ MonoBehaviour:
   shootDelay: 0.5
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
   bulletSpeed: 100

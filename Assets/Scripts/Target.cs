@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class Target : MonoBehaviour
@@ -11,8 +12,29 @@ public class Target : MonoBehaviour
     public float health = 50f; // Initial health
     private bool alive = true;
     [SerializeField] private Slider healthBar;
-    
-    
+    private float initalHealth;
+    private bool healthBarDestoryed = false;
+
+    private void Start()
+    {
+        initalHealth = health;
+        healthBar.maxValue = initalHealth;
+        healthBar.value = health;
+    }
+
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            alive = false;
+        }
+
+        health = Mathf.Clamp(health, 0, initalHealth);
+        if (!healthBarDestoryed)
+        {
+            healthBar.value = health;
+        }
+    }
 
     public void TakeDamage(float amount)
     {
@@ -20,9 +42,12 @@ public class Target : MonoBehaviour
         if (health <= 0f)
         {
             alive = false;
-            Destroy(healthBar.gameObject);
+            if (!healthBarDestoryed)
+            {
+                Destroy(healthBar.gameObject);
+                healthBarDestoryed = true;
+            }
         }
-        healthBar.value = health;
     }
 
     public bool IsAlive()
