@@ -1971,6 +1971,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 265ca52b1f720ab4caaf2f7a83822e84, type: 3}
+    - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
       propertyPath: maskExclusion.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -3484,6 +3488,10 @@ PrefabInstance:
       propertyPath: useSight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bff9c8fcae957645b2387c126939756, type: 3}
     - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
       propertyPath: maskExclusion.m_Bits
       value: 512
@@ -8433,6 +8441,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bff9c8fcae957645b2387c126939756, type: 3}
+    - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
       propertyPath: maskExclusion.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -8929,10 +8941,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
-      propertyPath: maskExclusion.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
       propertyPath: wanderPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -8944,6 +8952,18 @@ PrefabInstance:
       propertyPath: wanderPoints.Array.data[1]
       value: 
       objectReference: {fileID: 710546051}
+    - target: {fileID: 5049903723750728715, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049903723750728715, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049903723750728715, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.545
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9825,6 +9845,10 @@ PrefabInstance:
       propertyPath: useSight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bff9c8fcae957645b2387c126939756, type: 3}
     - target: {fileID: 4563747282291269679, guid: 7979ed2275e4a904689f8646c33e2f75, type: 3}
       propertyPath: maskExclusion.m_Bits
       value: 512
