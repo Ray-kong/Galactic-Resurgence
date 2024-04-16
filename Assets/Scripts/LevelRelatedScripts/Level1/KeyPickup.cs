@@ -8,7 +8,9 @@ public class KeyPickup : MonoBehaviour
     public KeyCode pickupKey = KeyCode.E;
     public GameObject interactText;
     public GameObject Enemies1;
+    public GameObject Enemies2;
     public AudioSource item;
+    public AudioSource uhoh;
 
     private GameObject player;
     private bool isPlayerNear = false;
@@ -41,6 +43,9 @@ public class KeyPickup : MonoBehaviour
     {
         PlayerInventory.HasKeyLevel1 = true; 
         Enemies1.SetActive(true);
+        Enemies2.SetActive(false);
         item.Play();
+
+        uhoh.Play();
     }
 }
