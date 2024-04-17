@@ -56,6 +56,7 @@ public class TwoDLevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        Projectile.score = 0;
         SceneManager.LoadScene(nextLevel);
     }
 

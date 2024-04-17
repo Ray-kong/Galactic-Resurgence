@@ -30,6 +30,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(nextSceneIndex);
     }
 
+    public void LoadLevel(String s)
+    {
+        SceneManager.LoadScene(s);
+    }
+
     public void Reset()
     {
         SceneManager.LoadScene(currentSceneIndex);

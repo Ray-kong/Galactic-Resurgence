@@ -7,7 +7,7 @@ public class ShipLevel3 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            LevelManager.Instance.LoadNextLevel();
+            LevelManager.Instance.LoadLevel("ExplosionScene");
         }
     }
 }
