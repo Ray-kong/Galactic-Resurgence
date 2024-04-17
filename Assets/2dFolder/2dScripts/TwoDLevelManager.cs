@@ -42,6 +42,7 @@ public class TwoDLevelManager : MonoBehaviour
         isGameOver = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Projectile.score = 0;
        // gameText.text = "YOU WIN!";
       //  gameText.gameObject.SetActive(true);
         AudioSource.PlayClipAtPoint(gameWonSFX, Camera.main.transform.position);
