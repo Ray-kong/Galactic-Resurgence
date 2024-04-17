@@ -276,13 +276,14 @@ GameObject:
   m_Component:
   - component: {fileID: 151085606}
   - component: {fileID: 151085607}
+  - component: {fileID: 151085608}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &151085606
 Transform:
   m_ObjectHideFlags: 0
@@ -305,7 +306,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151085605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe5234538e1064bfb801552320cf22af, type: 3}
   m_Name: 
@@ -315,6 +316,19 @@ MonoBehaviour:
   gameWonSFX: {fileID: 8300000, guid: 1d137c48521fa5b45a3a8a8fd345c17b, type: 3}
   nextLevel: Level3Final
   dialoguePanel: {fileID: 1721766398}
+--- !u!114 &151085608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151085605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e66a0881bf4a43a6dae8f134e523e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: Menu
 --- !u!1 &197049478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 147846, guid: e2a563409f05b26429e07cb45c0d2ea2, type: 3}
@@ -1864,6 +1878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8099299a21e6f432e9efa2f2ee88e3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevel: Menu
   explosionPrefab: {fileID: 1992329148}
 --- !u!1 &1423466454
 GameObject:

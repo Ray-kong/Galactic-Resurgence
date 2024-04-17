@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExplodeCutscene : MonoBehaviour
 {
+    public string nextLevel;
     public GameObject explosionPrefab;
     // Start is called before the first frame update
     void Start()
@@ -17,12 +19,18 @@ public class ExplodeCutscene : MonoBehaviour
         Invoke("Explosion7", 1);
         Invoke("Explosion", 3);
         Destroy(gameObject, 3.5f);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<CutsceneLevelManager>().LoadNextLevel();
     }
 
     public void Explosion()
@@ -65,4 +73,5 @@ public class ExplodeCutscene : MonoBehaviour
         Vector3 bruh = new Vector3(2, -1, 0);
         Instantiate(explosionPrefab, bruh, Quaternion.identity);
     }
+
 }
