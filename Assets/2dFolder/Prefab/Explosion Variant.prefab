@@ -13,6 +13,18 @@ PrefabInstance:
       value: Explosion Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8044445960365748606, guid: a5c9c91b33d91534f8a5530aec152979, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044445960365748606, guid: a5c9c91b33d91534f8a5530aec152979, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044445960365748606, guid: a5c9c91b33d91534f8a5530aec152979, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8044445960365748606, guid: a5c9c91b33d91534f8a5530aec152979, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
