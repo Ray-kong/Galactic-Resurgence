@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -9,6 +10,11 @@ public class MainMenu : MonoBehaviour
     public GameObject teamPanel;
     public GameObject sensitivityPanel;
     public GameObject buttonsAndText;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
 
     public void StartGame()
     {
